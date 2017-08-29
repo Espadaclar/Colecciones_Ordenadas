@@ -54,7 +54,7 @@ public class Prueba_TreSet {
             System.out.println(s.getDescripcion());
         }
         // Instanciamos el objeto con la interface Comparator
-        Elemento comparadorElemento = new Elemento();
+        ComparaString comparadorElemento = new ComparaString();
         // creamos el --> TreeSet(Comparator<? super E> comparator), le estamos diciendo
         // que almacenará los elementos según indique el comparador 'comparadorElemento'.
         TreeSet<Elemento> ordenaElementos = new TreeSet<Elemento>(comparadorElemento);
@@ -71,7 +71,7 @@ public class Prueba_TreSet {
     }
 }
 
-class Elemento implements Comparable<Elemento>, Comparator<Elemento> {
+class Elemento implements Comparable<Elemento>{
 
     private int id;
     private String descripcion;
@@ -94,8 +94,11 @@ class Elemento implements Comparable<Elemento>, Comparator<Elemento> {
     public int compareTo( Elemento o) {
         return getId() - o.getId();
     }
+}
 
-    /**
+class ComparaString implements Comparator<Elemento>{
+
+   /**
      * METODO DE LA INTERFACE Comparator<Articulo>
      * @param o1 --- UNO DE LOS ELEMENTOS DE LA COLECCIÓN.
      * @param o2 --- OTRO DE LOS ELEMENTOS DE LA COLECCIÓN.
